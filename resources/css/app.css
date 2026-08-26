@@ -4,6 +4,74 @@
 @source '../../storage/framework/views/*.php';
 
 @theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
+    /* Colors */
+    --color-background: #FFF8F3;
+    --color-surface: #FFFFFF;
+    --color-surface-soft: #FFF0F2;
+    --color-primary: #C85C78;
+    --color-primary-hover: #A94461;
+    --color-primary-soft: #F6D5DC;
+    --color-secondary: #7B5361;
+    --color-accent: #E5A54B;
+    --color-text: #33252B;
+    --color-muted-text: #725F67;
+    --color-border: #E8D9D5;
+    --color-success: #3E8060;
+    --color-warning: #A66A24;
+    --color-error: #B84251;
+    --color-admin-background: #F5F6F8;
+    --color-admin-surface: #FFFFFF;
+    --color-admin-primary: #5B526B;
+    --color-admin-text: #252631;
+
+    /* Typography */
+    --font-display: Fraunces, Georgia, serif;
+    --font-sans: 'DM Sans', system-ui, sans-serif;
+    /* Spacing */
+    --spacing-1: 4px;
+    --spacing-2: 8px;
+    --spacing-3: 12px;
+    --spacing-4: 16px;
+    --spacing-6: 24px;
+    --spacing-8: 32px;
+    --spacing-12: 48px;
+    --spacing-16: 64px;
+    --spacing-20: 80px;
+    --spacing-28: 112px;
+    /* Radius */
+    --radius-sm: 8px;
+    --radius-input: 10px;
+    --radius-md: 16px;
+    --radius-feature: 20px;
+    --radius-panel: 24px;
+    --radius-pill: 999px;
+    /* Shadows */
+    --shadow-sm: 0 1px 3px rgba(51, 37, 43, 0.08);
+    --shadow-md: 0 6px 18px rgba(51, 37, 43, 0.10);
+    --shadow-lg: 0 16px 40px rgba(51, 37, 43, 0.14);
+}
+
+@layer base {
+    body {
+        @apply bg-background text-text font-sans antialiased;
+    }
+    h1, h2, h3, h4, h5, h6 {
+        @apply font-display;
+    }
+    a {
+        @apply underline decoration-primary/30 underline-offset-4 hover:decoration-primary;
+    }
+    :focus-visible {
+        @apply outline-2 outline-offset-2 outline-primary;
+    }
+    ::selection {
+        @apply bg-primary-soft text-text;
+    }
+    @media (prefers-reduced-motion: reduce) {
+        *, ::before, ::after {
+            transition-duration: 0.01ms !important;
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+        }
+    }
 }
